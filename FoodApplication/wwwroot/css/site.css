@@ -16,3 +16,6 @@ html {
 body {
   margin-bottom: 60px;
 }
+.text-red{
+    color: red !important;
+}
