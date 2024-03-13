@@ -13,6 +13,22 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\wwwroot\\images\\carouselimages\\Burgers.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselimages\\Burgers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\wwwroot\\images\\carouselimages\\Pizzas.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselimages\\Pizzas.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\wwwroot\\images\\carouselimages\\Salads.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselimages\\Salads.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\wwwroot\\images\\carouselimages\\Tacos.jpg",
+      "PackagePath": "staticwebassets\\images\\carouselimages\\Tacos.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
