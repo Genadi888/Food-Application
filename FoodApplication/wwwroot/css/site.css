@@ -54,3 +54,27 @@ body {
 .recipe-item:hover a {
     color: #ffffff !important;
 }
+}
+.nav-link{
+    letter-spacing: 2px;
+}
+#carouselExamplesSlidesOnly{
+    height: 500px
+}
+footer{
+    background-color: black;
+    height: 200px;
+}
+header{
+    z-index: 1000;
+}
+.dishCard{
+    height: 250px;
+}
+#recipe-list{
+    top: 5rem;
+}
+#recipe-list::-webkit-scrollbar-{
+    width: 10px
+}
+
