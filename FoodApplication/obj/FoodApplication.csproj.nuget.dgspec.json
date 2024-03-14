@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\FoodApplication.csproj": {}
+    "C:\\Users\\Генади\\Desktop\\FoodApplication\\FoodApplication\\FoodApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\FoodApplication.csproj": {
+    "C:\\Users\\Генади\\Desktop\\FoodApplication\\FoodApplication\\FoodApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\FoodApplication.csproj",
+        "projectUniqueName": "C:\\Users\\Генади\\Desktop\\FoodApplication\\FoodApplication\\FoodApplication.csproj",
         "projectName": "FoodApplication",
-        "projectPath": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\FoodApplication.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\IT project\\Food-Application\\FoodApplication\\obj\\",
+        "projectPath": "C:\\Users\\Генади\\Desktop\\FoodApplication\\FoodApplication\\FoodApplication.csproj",
+        "packagesPath": "C:\\Users\\Генади\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Генади\\Desktop\\FoodApplication\\FoodApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Генади\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

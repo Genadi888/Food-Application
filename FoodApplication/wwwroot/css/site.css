@@ -16,6 +16,41 @@ html {
 body {
   margin-bottom: 60px;
 }
+
 .text-red{
     color: red !important;
+}
+
+.text-pink {
+    color: #ff1448 !important;
+}
+
+.nav-link {
+    letter-spacing: 2px;
+}
+
+.dishCard {
+    height: 270px;
+}
+
+#recipe-list {
+    top: 5rem;
+}
+#recipe-list ul::-webkit-scrollbar {
+    width: 10px;
+}
+#recipe-list ul::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+#recipe-list ul::-webkit-scrollbar-thumb {
+    background-color: #ff1448;
+    border-radius: 10px;
+}
+
+.recipe-item:hover {
+    background-color: #0d243d;
+    border-radius: 10px;
+}
+.recipe-item:hover a {
+    color: #ffffff !important;
 }
