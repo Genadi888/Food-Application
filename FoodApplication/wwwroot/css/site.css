@@ -38,7 +38,4 @@ header{
 #recipe-list{
     top: 5rem;
 }
-#recipe-list::-webkit-scrollbar-{
-    width: 10px
-}
 

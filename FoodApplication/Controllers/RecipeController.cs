@@ -10,9 +10,9 @@ namespace FoodApplication.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult GetRecipeCard([FromBody] List<Recipe> recipe)
+        public IActionResult GetRecipeCard([FromBody] List<Recipe> recipes)
         {
-            return PartialView("_RecipeCard", recipe);
+            return PartialView("_RecipeCard", recipes);
         }
     }
 }
