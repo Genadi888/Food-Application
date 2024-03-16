@@ -11,21 +11,9 @@ namespace FoodApplication.Controllers
         }
 
         [HttpPost]
-		public IActionResult GetRecipeCard([FromBody] List<Recipe> recipes)
-		{
-			return PartialView("_RecipeCard", recipes);
-		}
-
-		public IActionResult Search([FromQuery] string recipe)
-		{
-			ViewBag.Recipe = recipe;
-			return View();
-		}
-
-		public IActionResult Order([FromQuery] string id) 
+        public IActionResult GetRecipeCard([FromBody] List<Recipe> recipe)
         {
-			ViewBag.Id = id;
-			return View();
+            return PartialView("_RecipeCard", recipe);
         }
 
 		[HttpPost]
