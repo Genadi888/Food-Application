@@ -15,5 +15,11 @@ namespace FoodApplication.Controllers
         {
             return PartialView("_RecipeCard", recipe);
         }
+
+		[HttpPost]
+		public IActionResult ShowOrder(OrderRecipeDetails details)
+		{
+			return PartialView("_ShowOrder", details);
+		}
     }
 }
