@@ -9,10 +9,11 @@ namespace FoodApplication.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult GetRecipeCard([FromBody] List<Recipe> recipes)
+        public IActionResult GetRecipeCard([FromBody] List<Recipe> recipe)
         {
-            return PartialView("_RecipeCard", recipes);
+            return PartialView("_RecipeCard", recipe);
         }
     }
 }

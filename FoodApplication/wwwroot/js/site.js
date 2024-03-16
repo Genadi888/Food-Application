@@ -3,20 +3,21 @@
 
 // Write your JavaScript code.
 
-let apiURL = "https://forkify-api.herokuapp.com/api/v2/recipes"
-let apikey = "112afba4-7f19-4e97-956e-647ef753e4d6"
+const apiURL = "https://forkify-api.herokuapp.com/api/v2/recipes";
+const apiKey = "b4a57a58-feb4-4e70-8015-f45242e63c38"
 
-async function GetRecipes(recipeName,id,isAllShow) {
-    let resp = await fetch(`${apiURL}?search=${recipeName}&key=${apikey}`);
+
+async function GetRecipes(recipeName, id, isAllShow) {
+    let resp = await fetch(`${apiURL}?search=${recipeName}&key=${apiKey}`);
     let result = await resp.json();
-    console.log(result);
-    let Recipes = isAllShow ? result.data.recipes : result.data.recipes.slice(0, 5)
-    showRecipes(showRecipes, id);
+    let recipes = isAllShow ? result.data.recipes : result.data.recipes.slice(1, 7);
+    showRecipes(recipes, id);
 }
+
 function showRecipes(recipes, id) {
     $.ajax({
-        contentType: "application/json; charset=utf-8",
-        html: 'html',
+        contentType: 'application/json; charset=utf-8',
+        datatype: "html",
         type: 'POST',
         url: '/Recipe/GetRecipeCard',
         data: JSON.stringify(recipes),
@@ -24,4 +25,10 @@ function showRecipes(recipes, id) {
             $('#' + id).html(htmlResult);
         }
     })
+}
+
+async function getOrderRecipe(id) {
+    let resp = await fetch(`${apiURL}/${id}?key=${apiKey}`);
+    let result = await resp.json();
+    console.log(result);
 }
