@@ -8,10 +8,10 @@ const apiKey = "b4a57a58-feb4-4e70-8015-f45242e63c38"
 
 
 async function GetRecipes(recipeName, id, isAllShow) {
-    let resp = await fetch(`${apiURL}?search=${recipeName}&key=${apiKey}`);
-    let result = await resp.json();
+    const resp = await fetch(`${apiURL}?search=${recipeName}&key=${apiKey}`);
+    const result = await resp.json();
     //console.log(result);
-    let recipes = isAllShow ? result.data.recipes : result.data.recipes.slice(1, 7);
+    const recipes = isAllShow ? result.data.recipes : result.data.recipes.slice(1, 7);
     showRecipes(recipes, id);
 }
 
@@ -26,11 +26,25 @@ function showRecipes(recipes, id) {
             console.log(id);
             $('#' + id).html(htmlResult);
         }
-    })
+    });
 }
 
-async function getOrderRecipe(id) {
-    let resp = await fetch(`${apiURL}/${id}?key=${apiKey}`);
-    let result = await resp.json();
+async function getOrderRecipe(id, showId) {
+    const resp = await fetch(`${apiURL}/${id}?key=${apiKey}`);
+    const result = await resp.json();
     console.log(result);
+    const recipe = result.data.recipe;
+    showOrderRecipeDetails(recipe, showId);
+}
+
+function showOrderRecipeDetails(orderRecipeDetails, showId) {
+    $.ajax({
+        datatype: "html",
+        type: 'POST',
+        url: '/Recipe/ShowOrder',
+        data: (orderRecipeDetails),
+        success: function (htmlResult) {
+            $('#' + showId).html(htmlResult);
+        }
+    });
 }

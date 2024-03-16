@@ -1,0 +1,79 @@
+﻿@model FoodApplication.Models.OrderRecipeDetails
+
+<div class="container-fluid shadow rounded">
+	<div class="row">
+		<div class="col-12">
+			<img src="@Model.Image_url" class="w-100" id="order-img"/>
+		</div>
+	</div>
+	<div class="row mt-2">
+		<div class="col-sn-10 col-md-10 col-lg-1 col-xl-10">
+			<h2 class="text-dark">@Model.Title</h2>
+		</div>
+		<div class="col-sn-2 col-md-2 col-lg-2 col-xl-2">
+			<button type="button" class="btn btn-sm btn-success p-2 text-end">Order</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sn-6 col-md-6 col-lg-6 col-xl-6">
+			<div class="table-responsive p-2">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Description</th>
+							<th>Quantity</th>
+							<th>Unit</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (Ingredient ing in Model.Ingredients)
+						{
+							<tr>
+								<td>@ing.Description</td>
+								<td>@ing.Quantity</td>
+								<td>@ing.Unit</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class ="col-sn-6 col-md-6 col-lg-6 col-xl-6">
+			<div class="p-2">
+				<h4 class="text-dark">Bill Details</h4>
+
+				<div class="row border-bottom">
+					<label class="col-10 col-form-label">Price</label>
+					<div class="col-2">
+						<span>150</span>
+						@*<span></span>
+						<input type="text" class="form-control" />
+						<span></span>*@
+					</div>
+				</div>
+
+				<div class="row border-bottom">
+					<label class="col-6 col-form-label">Quantity</label>
+					<div class="col-6">
+						<span></span>
+						<input type="text" class="form-control"/>
+						<span></span>
+					</div>
+				</div>
+
+				<div class="row border-bottom">
+					<label class="col-10 col-form-label">Delivery Charge</label>
+					<label class="col-2 col-form-label text-success fw-bold">Free</label>
+				</div>
+
+				<div class="row">
+					<label class="col-10 col-form-label fs-5 fw-bold">Total</label>
+					<label class="col-2 col-form-label text-success fw-bold">150</label>
+				</div>
+
+			
+
+			</div>
+		</div>
+	</div>
+</div>

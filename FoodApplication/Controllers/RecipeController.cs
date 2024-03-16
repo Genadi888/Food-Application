@@ -27,5 +27,11 @@ namespace FoodApplication.Controllers
 			ViewBag.Id = id;
 			return View();
         }
+
+		[HttpPost]
+		public IActionResult ShowOrder(OrderRecipeDetails details)
+		{
+			return PartialView("_ShowOrder", details);
+		}
     }
 }
