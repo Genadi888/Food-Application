@@ -1,3 +1,6 @@
+using FoodApplication.ContextDBConfig;
+using Microsoft.EntityFrameworkCore;
+
 namespace FoodApplication
 {
 	public class Program
@@ -8,6 +11,13 @@ namespace FoodApplication
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			string connectionString = builder.Configuration.GetConnectionString("MySqlCon");
+
+			builder.Services.AddDbContext<FoodDbContext>(options =>
+			{
+				options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+			});
 
 			var app = builder.Build();
 
