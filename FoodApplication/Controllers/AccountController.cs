@@ -20,15 +20,19 @@ namespace FoodApplication.Controllers
 		{
 			return View();
 		}
+
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginViewModel login)
 		{
 			if (ModelState.IsValid)
 			{
-				ApplicationUser user = new ApplicationUser() { Email = login.Email };
+				//ApplicationUser user = new ApplicationUser() { Email = login.Email };
 				var result = await this._signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
 
-				if (result.Succeeded)
+				bool isAuth = User.Identity.IsAuthenticated;
+
+
+                if (result.Succeeded)
 				{
 					return RedirectToAction("Index", "Home");
 				}
@@ -38,8 +42,14 @@ namespace FoodApplication.Controllers
 				}
 
 			}
-			return View();
+			return View(login);
 		}
+
+		public async Task<IActionResult> LogOut()
+		{
+			await this._signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
 		public IActionResult Register()
 		{
@@ -59,16 +69,16 @@ namespace FoodApplication.Controllers
 					UserName = register.Email
 				};
 
-				IdentityResult result = await this._userManager.CreateAsync(user, register.Password);
+				IdentityResult userCreateResult = await this._userManager.CreateAsync(user, register.Password);
+				var signInResult = await this._signInManager.PasswordSignInAsync(user, register.Password, false, false);
 
-				if (result.Succeeded)
+				if (userCreateResult.Succeeded && signInResult.Succeeded)
 				{
-					await this._signInManager.PasswordSignInAsync(user, register.Password, false, false);
 					return RedirectToAction("Index", "Home");
 				}
 				else
 				{
-					foreach (IdentityError err in result.Errors)
+					foreach (IdentityError err in userCreateResult.Errors)
 					{
 						ModelState.AddModelError("", err.Description);
 					}

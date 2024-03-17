@@ -30,12 +30,25 @@
                             <a class="nav-link text-red fw-bold" asp-area="">Menu</a>
                         </li>
                     </ul>
-                    <div class="d-flex">
-                        <a class="nav-link fw-bold text-pink p-0 m-3" asp-controller="Account" 
-                        asp-action="Login">LogIn</a>         
-                        <a class="nav-link fw-bold text-pink p-0 m-3" asp-controller="Account" 
-                        asp-action="Register">Register</a>
-                    </div>
+                        @*@User.FindFirst(User.Identity.AuthenticationType)*@
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <div class="d-flex">
+                                <a class="nav-link fw-bold text-pink p-0 m-3" asp-controller="Account" 
+                                asp-action="Login">LogIn</a>         
+                                <a class="nav-link fw-bold text-pink p-0 m-3" asp-controller="Account" 
+                                asp-action="Register">Register</a>
+                                @*<a class="nav-link fw-bold text-pink p-0 m-3"
+                                asp-controller="Account" asp-action="LogОut">LogOut</a>*@
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="d-flex">
+                                <a class="nav-link fw-bold text-pink p-0 m-3" 
+                                asp-controller="Account" asp-action="Logout">Logout</a>
+                            </div>
+                        }
                 </div>
             </div>
         </nav>

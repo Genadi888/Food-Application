@@ -25,6 +25,7 @@ namespace FoodApplication
 				.AddEntityFrameworkStores<FoodDbContext>();
 
 			var app = builder.Build();
+			app.UseAuthentication();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
