@@ -21,10 +21,10 @@ namespace FoodApplication
 				options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 			});
 
-			var app = builder.Build();
-
 			builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 				.AddEntityFrameworkStores<FoodDbContext>();
+
+			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())

@@ -81,3 +81,7 @@ header{
 #order-img {
     height: 230px;
 }
+
+.validation-summary-errors li {
+    color: #dc3545;
+}
