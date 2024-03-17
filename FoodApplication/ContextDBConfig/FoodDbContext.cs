@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FoodApplication.Models;
 
 namespace FoodApplication.ContextDBConfig
 {
-	public class FoodDbContext : IdentityDbContext<IdentityUser>
+	public class FoodDbContext : IdentityDbContext<ApplicationUser>
 	{
 		public FoodDbContext(DbContextOptions<FoodDbContext> options) : base(options) 
 		{ 

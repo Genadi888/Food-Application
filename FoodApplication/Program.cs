@@ -1,4 +1,6 @@
 using FoodApplication.ContextDBConfig;
+using FoodApplication.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace FoodApplication
@@ -20,6 +22,9 @@ namespace FoodApplication
 			});
 
 			var app = builder.Build();
+
+			builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+				.AddEntityFrameworkStores<FoodDbContext>();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
