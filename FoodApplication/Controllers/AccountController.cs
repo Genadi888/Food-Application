@@ -1,6 +1,7 @@
 ﻿using FoodApplication.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Win32;
 
 namespace FoodApplication.Controllers
 {
@@ -17,6 +18,26 @@ namespace FoodApplication.Controllers
 
 		public IActionResult Login()
 		{
+			return View();
+		}
+		[HttpPost]
+		public async Task<IActionResult> Login(LoginViewModel login)
+		{
+			if (ModelState.IsValid)
+			{
+				ApplicationUser user = new ApplicationUser() { Email = login.Email };
+				var result = await this._signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
+
+				if (result.Succeeded)
+				{
+					return RedirectToAction("Index", "Home");
+				}
+				else
+				{
+					ModelState.AddModelError("", "Invalid LogIn Attempt");
+				}
+
+			}
 			return View();
 		}
 
