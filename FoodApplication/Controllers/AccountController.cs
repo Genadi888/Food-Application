@@ -29,7 +29,7 @@ namespace FoodApplication.Controllers
 				//ApplicationUser user = new ApplicationUser() { Email = login.Email };
 				var result = await this._signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
 
-				bool isAuth = User.Identity.IsAuthenticated;
+				//bool isAuth = User.Identity.IsAuthenticated;
 
 
                 if (result.Succeeded)
