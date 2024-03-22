@@ -17,6 +17,7 @@ namespace FoodApplication.ContextDBConfig
 		}
 
 		public DbSet<Order> Orders { get; set; }
+		public DbSet<Cart> Carts { get; set; }
 
 	}
 }
