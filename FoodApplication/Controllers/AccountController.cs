@@ -22,24 +22,24 @@ namespace FoodApplication.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(LoginViewModel login)
+		public async Task<IActionResult> Login(LoginViewModel login, string? returnUrl)
 		{
 			if (ModelState.IsValid)
 			{
 				//ApplicationUser user = new ApplicationUser() { Email = login.Email };
 				var result = await this._signInManager.PasswordSignInAsync(login.Email, login.Password, false, false);
-
 				//bool isAuth = User.Identity.IsAuthenticated;
-
-
-                if (result.Succeeded)
+				if (result.Succeeded)
 				{
-					return RedirectToAction("Index", "Home");
+					if (!string.IsNullOrEmpty(returnUrl))
+					{
+						return LocalRedirect(returnUrl);
+						return RedirectToAction("Index", "Home");
+					}
+					
 				}
-				else
-				{
 					ModelState.AddModelError("", "Invalid LogIn Attempt");
-				}
+				
 
 			}
 			return View(login);
