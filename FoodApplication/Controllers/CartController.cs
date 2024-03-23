@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace FoodApplication.Controllers
 {
-    [Authorise]
+    [Authorize]
     public class CartController : Controller
     {
         private readonly IData data;
@@ -33,11 +33,14 @@ namespace FoodApplication.Controllers
             }
             return BadRequest();
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAddedCarts()
         {
             var user = await data.GetUser(HttpContext.User);
-            var carts = context.Carts.Where(c => c.UserId == user.Id).Select(c => c.RecipeId).ToList();
+            var carts2 = context.Carts;
+            List<string?> carts = context.Carts.Where(c => c.UserId == user.Id).Select(c => c.RecipeId).ToList();
+            int n = 1;
             return Ok(carts);
         }
         [HttpPost]
