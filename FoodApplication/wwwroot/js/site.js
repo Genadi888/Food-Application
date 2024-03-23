@@ -30,10 +30,9 @@ function showRecipes(recipes, id) {
 }
 
 async function getOrderRecipe(id, showId) {
-    const resp = await fetch(`${apiURL}/${id}?key=${apiKey}`);
-    const result = await resp.json();
-    console.log(result);
-    const recipe = result.data.recipe;
+    let resp = await fetch(`${apiURL}/${id}?key=${apiKey}`);
+    let result = await resp.json();
+    let recipe = result.data.recipe;
     showOrderRecipeDetails(recipe, showId);
 }
 
@@ -62,4 +61,37 @@ function quantity(option) {
         price = price * qty;
     $('#qty').val(qty);
     $('#totalAmount').val(price);
+}
+
+// Add to cart
+
+function cart() {
+    let iTag = $(this).children('i')[0];
+    let recipeId = $(this).attr('data-recipeId');
+    console.log(recipeId);
+    if ($(iTag).hasClass('fa-regular')) {
+        let resp = await fetch(`${apiURL}/${recipeId}?key=${apikey}`);
+        let result = await resp.json();
+        let cart = result.data.recipe;
+        card.RecipeId = recipeId;
+        delete cart.id;
+        cartRequest(cart, 'SaveCart');
+
+    } else {
+
+    }
+}
+
+function cartRequest(data, action) {
+    $.ajax({
+        url: '/Cart/'+ action,
+        type: 'Post',
+        date: data,
+        success: function (resp) {
+            console.log(resp);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
 }
