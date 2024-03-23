@@ -1,4 +1,4 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿ // Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
@@ -23,9 +23,8 @@ function showRecipes(recipes, id) {
         url: '/Recipe/GetRecipeCard',
         data: JSON.stringify(recipes),
         success: function (htmlResult) {
-            console.log(id);
             $('#' + id).html(htmlResult);
-            getAddedCart();
+            getAddedCarts();
         }
     });
 }
@@ -70,7 +69,6 @@ async function cart() {
     let iTag = $(this).children('i')[0];
     let recipeId = $(this).attr('data-recipeId');
 
-    console.log(recipeId);
 
     if ($(iTag).hasClass('fa-regular')) {
         let resp = await fetch(`${apiURL}/${recipeId}?key=${apiKey}`);
@@ -99,7 +97,7 @@ function cartRequest(data, action, addcls, removecls,iTag, isReload) {
                 location.reload();
             } else {
                 $(iTag).addClass(addcls);
-                $(iTag).removeClas(removecls);
+                $(iTag).removeClass(removecls);
             }
             $(iTag).addClass(addcls);
             $(iTag).removeClass(removecls);
@@ -157,4 +155,9 @@ function removeCartfromlist(id) {
     console.log(id);
     let data = { Id: id };
     cartRequest(data, 'RemoveCartFromList', null, null, null, true);
+}
+
+function showAndrew() {
+    $('#andrew').css('display', 'initial');
+    $('#andrew').get(0).play();
 }

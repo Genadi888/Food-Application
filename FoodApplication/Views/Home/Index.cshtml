@@ -56,11 +56,15 @@
 							<div class="d-flex flex-wrap justify-content-between">
 							   <a href="/Recipe/Order?id=5ed6604591c37cdc054bcc13"
 							    class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
-								<span class="addToCartIcon" onclick="cart.call(this)"
-								data-recipeId="5ed6604591c37cdc054bcc13">
-									<i class="fa-regular fa-heart fs-3"></i>
+								
+								@if (User.Identity.IsAuthenticated)
+								{
+									<span class="addToCartIcon" onclick="cart.call(this)"
+									data-recipeId="5ed6604591c37cdc054bcc13">
+										<i class="fa-regular fa-heart fs-3"></i>
 									</span>
-								</div>
+								}
+							</div>
 
 						</div>
 					</div>
@@ -73,10 +77,15 @@
 							<div class="d-flex flex-wrap justify-content-between">
 								<a href="/Recipe/Order?id=5ed6604591c37cdc054bcf3d"
 							   class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
-							   <span class="addToCartIcon" onclick="cart.call(this)"
-									data-recipeId="5ed6604591c37cdc054bcf3d">
-								   <i class="fa-regular fa-heart fs-3"></i>
-								   </span>
+
+							   @if (User.Identity.IsAuthenticated)
+							   {
+								   <span class="addToCartIcon" onclick="cart.call(this)"
+										data-recipeId="5ed6604591c37cdc054bcf3d">
+									   <i class="fa-regular fa-heart fs-3"></i>
+									</span>
+							   }
+
 							</div>
 						</div>
 					</div>
@@ -89,10 +98,15 @@
 							   <div class="d-flex flex-wrap justify-content-between">
 								   <a href="/Recipe/Order?id=5ed6604591c37cdc054bcdd9"
 							   class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
-							   <span class="addToCartIcon" onclick="cart.call(this)"
-							   data-recipeId="5ed6604591c37cdc054bcdd9">
-								   <i class="fa-regular fa-heart fs-3"></i>
-								   </span>
+
+								@if (User.Identity.IsAuthenticated)
+								{
+								   <span class="addToCartIcon" onclick="cart.call(this)"
+								   data-recipeId="5ed6604591c37cdc054bcdd9">
+									   <i class="fa-regular fa-heart fs-3"></i>
+									</span>
+								}
+
 						   </div>
 						</div>
 					</div>
