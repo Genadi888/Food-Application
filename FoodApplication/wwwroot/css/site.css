@@ -116,11 +116,16 @@ header{
 }
 #showCartList{
     display:none;
+    right:20px;
+    width:400px;
 }
 #cartListIcon:hover ~#showCartList{
     display: block;
 }
 .cartListImg{
-    width: 180px;
-    height:100px;
+    width: 100px;
+    height:60px;
+}
+#showCartList:hover {
+    display: block;
 }
