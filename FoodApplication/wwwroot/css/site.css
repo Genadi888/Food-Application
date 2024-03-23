@@ -129,3 +129,16 @@ header{
 #showCartList:hover {
     display: block;
 }
+.cartImage{
+    width:180px;
+    height:150px;
+}
+.cartTitle{
+    width:500px;
+}
+.emptyCart{
+    font-size:300px;
+}
+.removeCartBTN{
+    cursor:pointer;
+}

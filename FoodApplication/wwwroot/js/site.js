@@ -76,20 +76,26 @@ async function cart() {
         let cart = result.data.recipe;
         cart.RecipeId = recipeId;
         delete cart.id;
-        cartRequest(cart, 'SaveCart','fa-solid', 'fa-regular', iTag);
+        cartRequest(cart, 'SaveCart','fa-solid', 'fa-regular', iTag, false);
 
     } else {
         let data = { Id:recipeId};
-        cartRequest(data, 'RemoveCartFromList', 'fa-regular', 'fa-solid', iTag);
+        cartRequest(data, 'RemoveCartFromList', 'fa-regular', 'fa-solid', iTag, false);
     }
 }
 
-function cartRequest(data, action, addcls, removecls,iTag) {
+function cartRequest(data, action, addcls, removecls,iTag, isReload) {
     $.ajax({
         url: '/Cart/'+ action,
         type: 'Post',
         data: data,
         success: function (resp) {
+            if (isReload) {
+                location.reload();
+            } else {
+                $(iTag).addClass(addcls);
+                $(iTag).removeClas(removecls);
+            }
             $(iTag).addClass(addcls);
             $(iTag).removeClass(removecls);
         },
@@ -140,3 +146,8 @@ function getCartList() {
 }
 
 
+function removeCartfromlist(id) {
+    console.log(id);
+    let data = { Id: id };
+    cartRequest(data, 'RemoveCartFromList', null, null, null, true);
+}
