@@ -107,7 +107,7 @@ function getAddedCarts() {
             $('.addToCartIcon').each((index, spanTag) => {
                 let recipeId = $(spanTag).attr("data-recipeId");
                 for (var i = 0; i < result.length; i++) {
-                    if (resipeId==result[i]) {
+                    if (recipeId==result[i]) {
                         $(this).children('i')[0];
                         let itag = $(spanTag).children('i')[0];
                         $(itag).addClass('fa-solid');
