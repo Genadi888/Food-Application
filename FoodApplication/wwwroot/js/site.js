@@ -65,7 +65,7 @@ function quantity(option) {
 
 // Add to cart
 
-function cart() {
+async function cart() {
     let iTag = $(this).children('i')[0];
     let recipeId = $(this).attr('data-recipeId');
     console.log(recipeId);
@@ -75,23 +75,38 @@ function cart() {
         let cart = result.data.recipe;
         card.RecipeId = recipeId;
         delete cart.id;
-        cartRequest(cart, 'SaveCart');
+        cartRequest(cart, 'SaveCart','fa-solid', 'fa-regular', iTag);
 
     } else {
 
     }
 }
 
-function cartRequest(data, action) {
+function cartRequest(data, action, addcls, removecls,iTag) {
     $.ajax({
         url: '/Cart/'+ action,
         type: 'Post',
         date: data,
         success: function (resp) {
-            console.log(resp);
+            $(iTag).adClass(addclas);
+            $(iTag).removeClass(removeclas);
         },
         error: function (err) {
             console.log(err);
         }
+    });
+}
+function getAddedCart() {
+    $.ajax({
+        url: '/Cart/GetAddedCarts',
+        type: 'GET',
+        dataType: 'json',
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+
     });
 }

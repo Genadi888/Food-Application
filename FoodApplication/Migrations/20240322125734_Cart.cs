@@ -7,7 +7,9 @@ namespace FoodApplication.Migrations
 {
     public partial class Cart : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+		public string UserId { get; internal set; }
+
+		protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
                 name: "Carts",
