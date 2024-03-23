@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FoodApplication.Repository;
 using FoodApplication.ContextDBConfig;
+using FoodApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FoodApplication.Controllers
 {

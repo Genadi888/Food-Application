@@ -65,7 +65,7 @@ function quantity(option) {
 
 // Add to cart
 
-function cart() {
+async function cart() {
     let iTag = $(this).children('i')[0];
     let recipeId = $(this).attr('data-recipeId');
     console.log(recipeId);
