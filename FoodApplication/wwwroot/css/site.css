@@ -118,6 +118,7 @@ header{
     display:none;
     right:20px;
     width:400px;
+    z-index: 1;
 }
 #cartListIcon:hover ~#showCartList{
     display: block;

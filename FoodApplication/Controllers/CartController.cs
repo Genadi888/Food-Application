@@ -40,11 +40,10 @@ namespace FoodApplication.Controllers
         public async Task<IActionResult> GetAddedCarts()
         {
             var user = await data.GetUser(HttpContext.User);
-            var carts2 = context.Carts;
             List<string?> carts = context.Carts.Where(c => c.UserId == user.Id).Select(c => c.RecipeId).ToList();
-            int n = 1;
             return Ok(carts);
         }
+
         [HttpPost]
         public IActionResult RemoveCartFromList(string Id)
         {
@@ -67,7 +66,7 @@ namespace FoodApplication.Controllers
         {
             var user = await data.GetUser(HttpContext.User);
             var cartList = context.Carts.Where(c => c.UserId == user.Id).Take(3).ToList();
-            return View("_CartList", cartList);
+            return PartialView("_CartList", cartList);
         }
     }
 }
