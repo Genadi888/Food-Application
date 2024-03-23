@@ -114,3 +114,13 @@ header{
 .bg-black{
      background-color:#0d243d;
 }
+#showCartList{
+    display:none;
+}
+#cartListIcon:hover ~#showCartList{
+    display: block;
+}
+.cartListImg{
+    width: 180px;
+    height:100px;
+}

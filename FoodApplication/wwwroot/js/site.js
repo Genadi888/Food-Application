@@ -25,6 +25,7 @@ function showRecipes(recipes, id) {
         success: function (htmlResult) {
             console.log(id);
             $('#' + id).html(htmlResult);
+            getAddedCart();
         }
     });
 }
@@ -78,7 +79,8 @@ async function cart() {
         cartRequest(cart, 'SaveCart','fa-solid', 'fa-regular', iTag);
 
     } else {
-
+        let data = { Id:recipeId};
+        cartRequest(data, 'RemoveCartFromList', 'fa-regular', 'fa-solid', iTag);
     }
 }
 
@@ -122,3 +124,5 @@ function getAddedCarts() {
 
     });
 }
+
+

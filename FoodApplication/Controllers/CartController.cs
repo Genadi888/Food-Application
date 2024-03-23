@@ -43,5 +43,29 @@ namespace FoodApplication.Controllers
             int n = 1;
             return Ok(carts);
         }
+        [HttpPost]
+        public IActionResult RemoveCartFromList(string Id)
+        {
+            if (!string.IsNullOrEmpty(Id))
+            {
+                var cart = context.Carts.Where(c => c.RecipeId == Id).FirstOrDefault();
+                if (cart!=null)
+                {
+                    context.Carts.Remove(cart);
+					context.SaveChanges();
+					return Ok();
+				}
+			}
+            return BadRequest();
+        }
+
+        [HttpGet]
+
+        public async Task<IActionResult> GetCartList()
+        {
+            var user = await data.GetUser(HttpContext.User);
+            var cartList = context.Carts.Where(c => c.UserId == user.Id).ToList();
+            return View();
+        }
     }
 }
