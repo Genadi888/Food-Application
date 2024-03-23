@@ -15,7 +15,10 @@
 					<div class="d-flex flex-wrap justify-content-between">
 						<a href="/Recipe/Order?id=@recipe.Id"
 						   class="btn btn-sm bg-black text-white shadow rounded p-2">Order</a>
-						<span class="addToCartIcon"><i class="fa-regular fa-heart fs-3"></i></span>
+								<span class="addToCartIcon" onclick="cart.call(this)"
+								data-recipeId="@recipe.Id">
+							<i class="fa-regular fa-heart fs-3"></i>
+							</span>
 					</div>
                 </div>
             </div>

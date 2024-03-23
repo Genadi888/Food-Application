@@ -70,10 +70,10 @@ async function cart() {
     let recipeId = $(this).attr('data-recipeId');
     console.log(recipeId);
     if ($(iTag).hasClass('fa-regular')) {
-        let resp = await fetch(`${apiURL}/${recipeId}?key=${apikey}`);
+        let resp = await fetch(`${apiURL}/${recipeId}?key=${apiKey}`);
         let result = await resp.json();
         let cart = result.data.recipe;
-        card.RecipeId = recipeId;
+        cart.RecipeId = recipeId;
         delete cart.id;
         cartRequest(cart, 'SaveCart','fa-solid', 'fa-regular', iTag);
 
@@ -88,8 +88,8 @@ function cartRequest(data, action, addcls, removecls,iTag) {
         type: 'Post',
         date: data,
         success: function (resp) {
-            $(iTag).adClass(addclas);
-            $(iTag).removeClass(removeclas);
+            $(iTag).addClass(addcls);
+            $(iTag).removeClass(removecls);
         },
         error: function (err) {
             console.log(err);
@@ -102,7 +102,19 @@ function getAddedCart() {
         type: 'GET',
         dataType: 'json',
         success: function (result) {
-            console.log(result);
+            $('.addToCartIcon').each((index, spanTag) => {
+                let recipeId = $(spanTag).attr("data-recipeId");
+                for (var i = 0; i < result.length; i++) {
+                    if (resipeId==result[i]) {
+                        $(this).children('i')[0];
+                        let itag = $(spanTag).children('i')[0];
+                        $(itag).addClass('fa-solid');
+                        $(itag).removeClass('fa-regular');
+                        break;
+                    }
+                }
+            })
+
         },
         error: function (err) {
             console.log(err);
