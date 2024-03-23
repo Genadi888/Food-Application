@@ -34,8 +34,12 @@
                         @if (User.Identity!.IsAuthenticated)
                         {
                             <div class="d-flex justify-content-center align-content-center">
-                                <div class="text-center">
-                                    <span><i class="fa-solid fa-cart-shopping text-pink fs-4"></i></span>
+                                    <div class="text-center position-relative">
+                                    <span id="cartListIcon"><i class="fa-solid fa-cart-shopping text-pink fs-4"></i></span>
+                                        <div id="showCartList" 
+                                            class="position-absolute shadow-lg rounded p-2">
+                                            <span>Demo</span>
+                                        </div>
                                 </div>
                                 <div>
                                     <a class="nav-link fw-bold text-pink"
@@ -99,6 +103,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
     @if (User.Identity!.IsAuthenticated)
     {
         <script type="text/javascript">
