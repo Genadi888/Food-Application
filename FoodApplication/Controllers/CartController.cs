@@ -64,7 +64,7 @@ namespace FoodApplication.Controllers
         {
             var user = await data.GetUser(HttpContext.User);
             var cartList = context.Carts.Where(c => c.UserId == user.Id).Take(3).ToList();
-            return View("-CartList", cartList);
+            return PartialView("_CartList", cartList);
         }
     }
 }
