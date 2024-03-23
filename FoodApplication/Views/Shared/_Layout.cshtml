@@ -34,11 +34,10 @@
                         @if (User.Identity!.IsAuthenticated)
                         {
                             <div class="d-flex justify-content-center align-content-center">
-                                    <div class="text-center position-relative">
-                                    <span id="cartListIcon"><i class="fa-solid fa-cart-shopping text-pink fs-4"></i></span>
+                                    <div class="text-center">
+                                    <span class="p-4" id="cartListIcon"><i class="fa-solid fa-cart-shopping text-pink fs-4"></i></span>
                                         <div id="showCartList" 
-                                            class="position-absolute shadow-lg rounded p-2">
-                                            <span>Demo</span>
+                                            class="position-absolute shadow-lg rounded p-2 bg-white">
                                         </div>
                                 </div>
                                 <div>
@@ -109,6 +108,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 getAddedCarts();
+                getCartList();
             })
             </script>
     }
