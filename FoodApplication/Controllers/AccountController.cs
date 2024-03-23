@@ -34,13 +34,15 @@ namespace FoodApplication.Controllers
 					if (!string.IsNullOrEmpty(returnUrl))
 					{
 						return LocalRedirect(returnUrl);
+					}
+					else
+					{
 						return RedirectToAction("Index", "Home");
 					}
 					
 				}
-					ModelState.AddModelError("", "Invalid LogIn Attempt");
-				
-
+					
+				ModelState.AddModelError("", "Invalid LogIn Attempt");
 			}
 			return View(login);
 		}

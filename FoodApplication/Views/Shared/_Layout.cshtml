@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                         @*@User.FindFirst(User.Identity.AuthenticationType)*@
-                        @if (User.Identity!.IsAuthenticated)
+                        @if (User.Identity.IsAuthenticated)
                         {
                             <div class="d-flex justify-content-center align-content-center">
                                 <div class="text-center">
@@ -46,8 +46,12 @@
                         else
                         {
                             <div>
-                                 <a class="nav-Link fw-bold text-pink" asp-controller="Account"
+                                 <a class="nav-Link fw-bold text-pink m-3 p-0" asp-controller="Account"
                                     asp-action="Login">LogIn</a>
+                            </div>
+                            <div>
+                            <a class="nav-Link fw-bold text-pink m-3 p-0" asp-controller="Account"
+                                    asp-action="Register">Register</a>
                             </div>
                         }
                 </div>
@@ -99,7 +103,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @if (User.Identity!.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated)
     {
         <script type="text/javascript">
             $(document).ready(function () {

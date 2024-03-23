@@ -86,7 +86,7 @@ function cartRequest(data, action, addcls, removecls,iTag) {
     $.ajax({
         url: '/Cart/'+ action,
         type: 'Post',
-        date: data,
+        data: data,
         success: function (resp) {
             $(iTag).addClass(addcls);
             $(iTag).removeClass(removecls);
@@ -96,7 +96,7 @@ function cartRequest(data, action, addcls, removecls,iTag) {
         }
     });
 }
-function getAddedCart() {
+function getAddedCarts() {
     $.ajax({
         url: '/Cart/GetAddedCarts',
         type: 'GET',
