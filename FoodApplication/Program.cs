@@ -1,3 +1,9 @@
+using FoodApplication.ContextDBConfig;
+using FoodApplication.Models;
+using FoodApplication.Repository;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 namespace FoodApplication
 {
 	public class Program
@@ -8,8 +14,21 @@ namespace FoodApplication
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+			string connectionString = builder.Configuration.GetConnectionString("MySqlCon");
+			builder.Services.AddDbContext<FoodDbContext>(options =>
+			{
+				options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+			});
+
+			builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+				.AddEntityFrameworkStores<FoodDbContext>();
+
+
+			builder.Services.AddTransient<IData, Data>();
+
 
 			var app = builder.Build();
+			app.UseAuthentication();
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())

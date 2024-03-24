@@ -30,7 +30,7 @@ body {
 }
 
 .dishCard {
-    height: 270px;
+    height: min-content;
 }
 
 #recipe-list {
@@ -67,9 +67,11 @@ footer{
 }
 header{
     z-index: 1000;
+    position: fixed;
+    width: 100vw;
 }
 .dishCard{
-    height: 250px;
+    height: min-content;
 }
 #recipe-list{
     top: 5rem;
@@ -80,4 +82,79 @@ header{
 
 #order-img {
     height: 230px;
+}
+
+.validation-summary-errors li {
+    color: #dc3545;
+}
+#qty{
+    width:50px;
+    border:none;
+}
+#qty:focus{
+    outline:none;
+}
+#qtySection{
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.fa-plus, .fa-minus {
+    cursor:pointer;
+}
+#totalAmount, #price {
+    width:60px;
+    border:none;
+
+}
+#totalAmount:focus, #price:focus {
+    outline:none;
+}
+.addToCartIcon{
+    cursor:pointer;
+}
+.bg-black{
+     background-color:#0d243d;
+}
+#showCartList{
+    display:none;
+    right:20px;
+    width:400px;
+    z-index: 1;
+}
+#cartListIcon:hover ~#showCartList{
+    display: block;
+}
+.cartListImg{
+    width: 100px;
+    height:60px;
+}
+#showCartList:hover {
+    display: block;
+}
+.cartImage{
+    width:180px;
+    height:150px;
+}
+.cartTitle{
+    width:500px;
+}
+.emptyCart{
+    font-size:300px;
+}
+.removeCartBTN{
+    cursor:pointer;
+}
+
+#andrew {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body > div > main {
+    padding-top: 64px;
 }
