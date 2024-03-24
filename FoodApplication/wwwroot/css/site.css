@@ -67,6 +67,8 @@ footer{
 }
 header{
     z-index: 1000;
+    position: fixed;
+    width: 100vw;
 }
 .dishCard{
     height: min-content;
@@ -151,4 +153,8 @@ header{
     right: 0;
     width: 100vw;
     height: 100vh;
+}
+
+body > div > main {
+    padding-top: 64px;
 }
